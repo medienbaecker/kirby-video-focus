@@ -1,0 +1,41 @@
+{
+	"name": "medienbaecker/kirby-video-focus",
+	"description": "Focus point picker for video files in the Kirby Panel",
+	"license": "MIT",
+	"type": "kirby-plugin",
+	"version": "1.0.0",
+	"authors": [
+		{
+			"name": "Thomas Günther",
+			"email": "mail@medienbaecker.com"
+		}
+	],
+	"support": {
+		"source": "https://github.com/medienbaecker/kirby-video-focus"
+	},
+	"require": {
+		"php": "^8.2",
+		"getkirby/cms": "^5.0",
+		"getkirby/composer-installer": "^1.2"
+	},
+	"config": {
+		"allow-plugins": {
+			"getkirby/composer-installer": true
+		}
+	},
+	"archive": {
+		"exclude": [
+			".DS_Store",
+			".github/",
+			".editorconfig",
+			".gitattributes",
+			".gitignore",
+			"composer.lock",
+			"node_modules/",
+			"package-lock.json",
+			"package.json",
+			"src/",
+			"vendor/"
+		]
+	}
+}

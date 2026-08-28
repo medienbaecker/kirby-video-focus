@@ -1,0 +1,14 @@
+# os
+.DS_Store
+
+# editors
+.idea/
+.vscode/
+
+# composer
+composer.lock
+vendor/
+
+# Node
+node_modules/
+npm-debug.log*
