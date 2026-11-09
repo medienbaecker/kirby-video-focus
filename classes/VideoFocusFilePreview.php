@@ -3,7 +3,7 @@
 namespace Medienbaecker\VideoFocus;
 
 use Kirby\Cms\File;
-use Kirby\Panel\Ui\FilePreviews\VideoFilePreview;
+use Kirby\Panel\Ui\FilePreview\VideoFilePreview;
 
 class VideoFocusFilePreview extends VideoFilePreview
 {

@@ -4,9 +4,13 @@ Adds a focus point picker to video files in the [Kirby](https://getkirby.com/) P
 
 ![A video in the Kirby Panel file view with the focus thumb placed over the player and the resulting value in the details column](.github/file-view.png)
 
+## Video thumbnails
+
+Files sections, files fields and the file picker show the first frame of a video where Kirby would show the video icon, in cards and lists alike.
+
 ## Requirements
 
-- Kirby 5+
+- Kirby 6+
 - PHP 8.2+
 
 ## Installation

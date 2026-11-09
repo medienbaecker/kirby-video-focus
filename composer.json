@@ -15,7 +15,7 @@
 	},
 	"require": {
 		"php": "^8.2",
-		"getkirby/cms": "^5.0",
+		"getkirby/cms": "^6.0",
 		"getkirby/composer-installer": "^1.2"
 	},
 	"config": {
