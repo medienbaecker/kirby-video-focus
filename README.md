@@ -22,7 +22,7 @@ The value lands in the `focus` field, so `$file->focus()` returns it just like f
 ```php
 <video
 	src="<?= $file->url() ?>"
-	style="object-fit: cover; object-position: <?= $file->focus() ?>"
+	style="object-fit: cover; object-position: <?= $file->focus()->esc('attr') ?>"
 	autoplay muted loop playsinline
 ></video>
 ```
