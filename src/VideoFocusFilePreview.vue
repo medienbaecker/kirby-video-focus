@@ -3,7 +3,7 @@
 		<k-file-preview-frame :options="options">
 			<div class="k-video-focus-stage">
 				<video ref="video" :src="url" controls preload="metadata" />
-				<button v-if="isFocusable && hasFocus" class="k-video-focus-thumb"
+				<button v-if="hasFocus" :disabled="!isFocusable" class="k-video-focus-thumb"
 					:style="{ left: focus.x + '%', top: focus.y + '%' }" :title="$t('file.focus.title')"
 					@pointerdown="startDrag" @pointermove="drag" @pointerup="endDrag" @pointercancel="endDrag"
 					@keydown="onKeys" />
@@ -11,15 +11,17 @@
 		</k-file-preview-frame>
 
 		<k-file-preview-details :details="details">
-			<div v-if="isFocusable" class="k-image-file-preview-focus">
+			<div class="k-image-file-preview-focus">
 				<dt>{{ $t("file.focus.title") }}</dt>
 				<dd>
-					<k-button :icon="hasFocus ? 'cancel-small' : 'preview'"
+					<k-button v-if="isFocusable" :icon="hasFocus ? 'cancel-small' : 'preview'"
 						:title="hasFocus ? $t('file.focus.reset') : undefined" size="xs" variant="filled"
 						@click="hasFocus ? setFocus(undefined) : setFocus({ x: 50, y: 50 })">
 						<template v-if="hasFocus">{{ focus.x }}% {{ focus.y }}%</template>
 						<template v-else>{{ $t("file.focus.placeholder") }}</template>
 					</k-button>
+					<template v-else-if="hasFocus">{{ focus.x }}% {{ focus.y }}%</template>
+					<template v-else>–</template>
 				</dd>
 			</div>
 		</k-file-preview-details>
@@ -67,7 +69,6 @@ export default {
 	},
 	methods: {
 		startDrag(event) {
-			if (this.isFocusable === false) return;
 			event.target.setPointerCapture(event.pointerId);
 			this.dragging = true;
 		},
@@ -126,6 +127,10 @@ export default {
 	background: hsl(216 60% 60% / 0.75);
 	cursor: grab;
 	touch-action: none;
+}
+
+.k-video-focus-thumb:disabled {
+	pointer-events: none;
 }
 
 .k-video-focus-thumb:active {
